@@ -317,7 +317,10 @@ int8_t bmp5_init(struct bmp5_dev *dev)
                 if (chip_id != 0)
                 {
                     /* Validate post power-up procedure */
-                    rslt = power_up_check(dev);
+                    // rslt = power_up_check(dev);
+
+                    /* breadn-note: edit to perform soft reset for NVM status register */
+                    rslt = bmp5_soft_reset(dev);
                 }
                 else
                 {
